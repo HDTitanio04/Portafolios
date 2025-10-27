@@ -28,12 +28,7 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
-                        radial-gradient(circle at 20% 50%, rgba(201,169,97,0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(201,169,97,0.1) 0%, transparent 50%),
-                        #0a0a0a;
-            background-size: cover;
-            background-position: center;
+            background: #0f0f0f;
         }
 
         .hero-content {
@@ -50,7 +45,6 @@
             letter-spacing: 8px;
             text-transform: uppercase;
             color: #c9a961;
-            animation: fadeInDown 1.2s ease;
         }
 
         .hero-divider {
@@ -58,12 +52,6 @@
             height: 1px;
             background: #c9a961;
             margin: 30px auto;
-            animation: expandWidth 1s ease 0.5s both;
-        }
-
-        @keyframes expandWidth {
-            from { width: 0; }
-            to { width: 100px; }
         }
 
         .hero h2 {
@@ -73,7 +61,6 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             color: #d4d4d4;
-            animation: fadeInUp 1.2s ease 0.6s both;
             font-family: 'Montserrat', sans-serif;
         }
 
@@ -88,52 +75,12 @@
             font-size: 0.95rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            transition: all 0.4s ease;
-            animation: fadeInUp 1.2s ease 0.9s both;
             font-family: 'Montserrat', sans-serif;
         }
 
         .cta-button:hover {
             background: #c9a961;
             color: #0a0a0a;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: float 3s ease-in-out infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-15px); }
         }
 
         .section {
@@ -185,34 +132,9 @@
         }
 
         .skill-card {
-            background: linear-gradient(145deg, #151515, #0f0f0f);
+            background: #151515;
             padding: 50px 35px;
             border: 1px solid #2a2a2a;
-            transition: all 0.5s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #c9a961, transparent);
-            transform: translateX(-100%);
-            transition: transform 0.8s ease;
-        }
-
-        .skill-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            border-color: #c9a961;
-            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.15);
         }
 
         .skill-card h3 {
@@ -248,7 +170,6 @@
             border-left: 2px solid #c9a961;
             padding-left: 40px;
             position: relative;
-            transition: all 0.3s ease;
         }
 
         .experience-item::before {
@@ -260,11 +181,6 @@
             height: 10px;
             background: #c9a961;
             border-radius: 50%;
-            box-shadow: 0 0 20px rgba(201, 169, 97, 0.6);
-        }
-
-        .experience-item:hover {
-            padding-left: 50px;
         }
 
         .experience-item h3 {
@@ -284,7 +200,7 @@
         }
 
         .contact-section {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            background: #0f0f0f;
             padding: 100px 40px;
             text-align: center;
             border-top: 1px solid #2a2a2a;
@@ -317,14 +233,12 @@
             color: #c9a961;
             text-decoration: none;
             font-size: 1.15rem;
-            transition: all 0.3s ease;
             letter-spacing: 1px;
             font-family: 'Montserrat', sans-serif;
         }
 
         .contact-item a:hover {
             color: #d4b872;
-            transform: translateY(-2px);
         }
 
         .location {
@@ -361,11 +275,6 @@
             <div class="hero-divider"></div>
             <h2>Marketing Gastronómico</h2>
             <a href="#contacto" class="cta-button">Contacto</a>
-        </div>
-        <div class="scroll-indicator">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.5">
-                <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
         </div>
     </section>
 
