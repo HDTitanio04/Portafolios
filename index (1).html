@@ -4,52 +4,353 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jose Antonio Criado Paterna - Marketing Gastronómico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+            font-family: 'Cormorant Garamond', Georgia, serif;
             background: #0a0a0a;
             color: #e8e8e8;
             overflow-x: hidden;
             line-height: 1.7;
         }
+
         .hero {
-            height: 100vh; display: flex; align-items: center; justify-content: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23151515" width="1200" height="800"/><path d="M0 400 Q300 350 600 400 T1200 400" stroke="%23c9a961" stroke-width="2" fill="none" opacity="0.3"/><path d="M0 420 Q300 370 600 420 T1200 420" stroke="%23c9a961" stroke-width="1" fill="none" opacity="0.2"/></svg>');
-            background-size: cover; background-position: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        radial-gradient(circle at 20% 50%, rgba(201,169,97,0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(201,169,97,0.1) 0%, transparent 50%),
+                        #0a0a0a;
+            background-size: cover;
+            background-position: center;
         }
-        .hero-content { text-align: center; z-index: 2; padding: 40px; max-width: 900px; }
-        .hero h1 { font-size: 4.5rem; margin-bottom: 1.5rem; font-weight: 300; letter-spacing: 8px; text-transform: uppercase; color: #c9a961; }
-        .hero-divider { width: 100px; height: 1px; background: #c9a961; margin: 30px auto; }
-        .hero h2 { font-size: 1.5rem; font-weight: 300; margin-bottom: 3rem; letter-spacing: 3px; text-transform: uppercase; color: #d4d4d4; font-family: 'Segoe UI', sans-serif; }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 40px;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #c9a961;
+            animation: fadeInDown 1.2s ease;
+        }
+
+        .hero-divider {
+            width: 100px;
+            height: 1px;
+            background: #c9a961;
+            margin: 30px auto;
+            animation: expandWidth 1s ease 0.5s both;
+        }
+
+        @keyframes expandWidth {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #d4d4d4;
+            animation: fadeInUp 1.2s ease 0.6s both;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         .cta-button {
-            display: inline-block; padding: 18px 50px; background: transparent; color: #c9a961;
-            text-decoration: none; border: 2px solid #c9a961; font-weight: 400; font-size: 0.95rem;
-            letter-spacing: 3px; text-transform: uppercase; transition: all 0.4s ease;
-            font-family: 'Segoe UI', sans-serif;
+            display: inline-block;
+            padding: 18px 50px;
+            background: transparent;
+            color: #c9a961;
+            text-decoration: none;
+            border: 2px solid #c9a961;
+            font-weight: 400;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            animation: fadeInUp 1.2s ease 0.9s both;
+            font-family: 'Montserrat', sans-serif;
         }
-        .cta-button:hover { background: #c9a961; color: #0a0a0a; transform: translateY(-2px); }
-        .section { padding: 120px 40px; max-width: 1100px; margin: 0 auto; }
-        .section-title { font-size: 3rem; margin-bottom: 1rem; text-align: center; color: #c9a961; font-weight: 300; letter-spacing: 6px; text-transform: uppercase; }
-        .section-subtitle { text-align: center; color: #888; font-size: 1.1rem; margin-bottom: 4rem; font-family: 'Segoe UI', sans-serif; font-weight: 300; letter-spacing: 1px; }
-        .about-content { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; line-height: 2; color: #b8b8b8; font-weight: 300; }
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 60px; }
-        .skill-card { background: linear-gradient(145deg, #151515, #0f0f0f); padding: 50px 35px; border: 1px solid #2a2a2a; transition: all 0.5s ease; }
-        .skill-card:hover { transform: translateY(-8px); border-color: #c9a961; }
-        .skill-card h3 { font-size: 1.4rem; margin-bottom: 20px; color: #c9a961; font-weight: 400; letter-spacing: 2px; text-transform: uppercase; }
-        .skill-card p { line-height: 1.8; color: #a8a8a8; font-size: 1rem; font-family: 'Segoe UI', sans-serif; font-weight: 300; }
-        .contact-section { background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%); padding: 100px 40px; text-align: center; border-top: 1px solid #2a2a2a; }
-        .contact-info { display: flex; justify-content: center; gap: 80px; margin-top: 50px; flex-wrap: wrap; }
-        .contact-label { color: #888; font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; font-family: 'Segoe UI', sans-serif; }
-        .contact-item a { color: #c9a961; text-decoration: none; font-size: 1.15rem; transition: all 0.3s ease; letter-spacing: 1px; font-family: 'Segoe UI', sans-serif; }
-        .contact-item a:hover { color: #d4b872; transform: translateY(-2px); }
+
+        .cta-button:hover {
+            background: #c9a961;
+            color: #0a0a0a;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 3s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+
+        .section {
+            padding: 120px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            color: #c9a961;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.15rem;
+            line-height: 2;
+            color: #b8b8b8;
+            font-weight: 300;
+        }
+
+        .about-content p {
+            margin-bottom: 25px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .skill-card {
+            background: linear-gradient(145deg, #151515, #0f0f0f);
+            padding: 50px 35px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #c9a961, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #c9a961;
+            box-shadow: 0 15px 50px rgba(201, 169, 97, 0.15);
+        }
+
+        .skill-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: #c9a961;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .skill-card p {
+            line-height: 1.8;
+            color: #a8a8a8;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .experience-section {
+            background: #0f0f0f;
+            border-top: 1px solid #2a2a2a;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .experience-grid {
+            display: grid;
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .experience-item {
+            border-left: 2px solid #c9a961;
+            padding-left: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: #c9a961;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(201, 169, 97, 0.6);
+        }
+
+        .experience-item:hover {
+            padding-left: 50px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.8rem;
+            color: #c9a961;
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+
+        .experience-item p {
+            color: #a8a8a8;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 300;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            padding: 100px 40px;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-label {
+            color: #888;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-item a {
+            color: #c9a961;
+            text-decoration: none;
+            font-size: 1.15rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .contact-item a:hover {
+            color: #d4b872;
+            transform: translateY(-2px);
+        }
+
+        .location {
+            margin-top: 40px;
+            color: #888;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; letter-spacing: 4px; }
-            .hero h2 { font-size: 1.1rem; letter-spacing: 2px; }
-            .section-title { font-size: 2rem; letter-spacing: 3px; }
-            .section { padding: 80px 20px; }
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            .hero h2 {
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+            .section-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            .section {
+                padding: 80px 20px;
+            }
         }
     </style>
 </head>
@@ -61,7 +362,13 @@
             <h2>Marketing Gastronómico</h2>
             <a href="#contacto" class="cta-button">Contacto</a>
         </div>
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a961" stroke-width="1.5">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
     </section>
+
     <section class="section">
         <h2 class="section-title">Presentación</h2>
         <p class="section-subtitle">Uniendo Gastronomía y Comunicación</p>
@@ -70,7 +377,55 @@
             <p>Creo firmemente que la unión entre ambos campos —la cocina y la comunicación— es clave para crear experiencias memorables que transmitan emociones a través de los sentidos.</p>
         </div>
     </section>
-    <section class="section contact-section" id="contacto">
+
+    <section class="section">
+        <h2 class="section-title">Competencias</h2>
+        <p class="section-subtitle">Formación y Habilidades</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Formación</h3>
+                <p>Grado Superior en Dirección de Cocina en Barcelona Culinary Hub y Grado Medio en Actividades Comerciales con especialización en marketing.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Marketing Gastronómico</h3>
+                <p>Visión creativa para mejorar la presentación de platos, la forma de servirlos y comunicar su valor a través de estrategias digitales.</p>
+            </div>
+            <div class="skill-card">
+                <h3>Gestión Digital</h3>
+                <p>Experiencia en gestión de redes sociales y estrategias digitales que refuerzan la identidad del restaurante y del hotel.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section experience-section">
+        <h2 class="section-title">Experiencia</h2>
+        <p class="section-subtitle">Trayectoria Profesional</p>
+        <div class="experience-grid">
+            <div class="experience-item">
+                <h3>Campos Estela</h3>
+                <p>Desarrollo de competencias clave en organización y creatividad culinaria, trabajando con atención al detalle y enfoque en la excelencia del servicio.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Oak Restaurante</h3>
+                <p>Experiencia en un entorno gastronómico de alta calidad, fortaleciendo la capacidad de trabajar bajo presión manteniendo estándares elevados.</p>
+            </div>
+            <div class="experience-item">
+                <h3>365 Cafetería</h3>
+                <p>Gestión de servicio al cliente y operaciones diarias, perfeccionando la capacidad de ofrecer un servicio impecable y experiencias memorables.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Propuesta de Valor</h2>
+        <p class="section-subtitle">Aportación al Equipo</p>
+        <div class="about-content">
+            <p>Soy una persona responsable, con gran capacidad de aprendizaje y motivación por seguir creciendo profesionalmente. Mi formación y entusiasmo pueden aportar valor a equipos que buscan innovación y mejora continua en el ámbito de la hospitalidad y la gastronomía.</p>
+            <p>Mi objetivo es contribuir al desarrollo de experiencias gastronómicas excepcionales, combinando la excelencia culinaria con estrategias de comunicación efectivas que refuercen la identidad y el prestigio del establecimiento.</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
         <h2 class="section-title">Contacto</h2>
         <p class="section-subtitle">Disponible para Nuevas Oportunidades</p>
         <div class="contact-info">
@@ -83,7 +438,7 @@
                 <a href="tel:+34622293516">+34 622 29 35 16</a>
             </div>
         </div>
-        <p style="margin-top: 40px; color: #888; font-size: 1rem; letter-spacing: 2px;">Barcelona, España</p>
+        <p class="location">Barcelona, España</p>
     </section>
 </body>
 </html>
