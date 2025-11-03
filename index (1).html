@@ -267,17 +267,37 @@
             }
         }
     </style>
+</head>
+<body onload="window.scrollTo(0, 0)">
     <script>
-        window.addEventListener('load', function() {
+        // Forzar scroll al inicio inmediatamente
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        
+        // Deshabilitar restauración de scroll del navegador
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        
+        // Asegurar que está arriba cuando carga
+        window.addEventListener('beforeunload', function() {
             window.scrollTo(0, 0);
         });
         
-        if (history.scrollRestoration) {
-            history.scrollRestoration = 'manual';
-        }
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+        
+        // Por si acaso, revisar constantemente hasta que esté arriba
+        let checkScroll = setInterval(function() {
+            if (document.readyState === 'complete') {
+                window.scrollTo(0, 0);
+                clearInterval(checkScroll);
+            }
+        }, 10);
     </script>
-</head>
-<body>
     <section class="hero">
         <div class="hero-content">
             <h1>Jose Antonio<br>Criado Paterna</h1>
