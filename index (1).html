@@ -267,6 +267,15 @@
             }
         }
     </style>
+    <script>
+        window.addEventListener('load', function() {
+            window.scrollTo(0, 0);
+        });
+        
+        if (history.scrollRestoration) {
+            history.scrollRestoration = 'manual';
+        }
+    </script>
 </head>
 <body>
     <section class="hero">
